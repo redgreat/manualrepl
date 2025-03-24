@@ -13,8 +13,12 @@ def convert_mainpart_id(mainpart_id: str):
     """转换货主Id
     """
     type_mapping = {
+        # 正式环境
         'DD9999999970': 'DT0000000001',
-        'DD9999999971': 'DT0000000002'
+        'DD9999999971': 'DT0000000002',
+        # 测试环境
+        'DD9999999936': 'DT0000000001',
+        'DD9999999937': 'DT0000000002',
     }
 
     if isinstance(mainpart_id, str) and mainpart_id.startswith('DD'):
@@ -28,11 +32,17 @@ def convert_supplier_type(supplier_type: str):
         supplier_type (str): 原始供应商类型编码
     Returns:
         int/str: 转换后的数值或原始值
-    """
+    正式对应关系：
     type_mapping = {
         'DD9999999997': 0,
         'DD9999999996': 1,
         'DD9999999995': 2
+    }
+    """
+    type_mapping = {
+        'DD9999999980': 0,
+        'DD9999999979': 1,
+        'DD9999999978': 2
     }
 
     if isinstance(supplier_type, str) and supplier_type.startswith('DD'):
